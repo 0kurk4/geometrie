@@ -4,15 +4,18 @@ import AreaParamsForm from "./params-selector/AreaParamsForm";
 import './AreaCalculator.css';
 
 function AreaCalculator(props: any) {
-    return(
+    console.log(props.shape);
+    return (
         <div className="Area-calculator">
-            <AreaDescription />
+            <AreaDescription shape={props.shape} />
             <div className="Area-params-wrapper">
-                <AreaParamsForm />
-                <div className="Area-result-wrapper">
-                   <AreaResult />
+                <AreaParamsForm shape={props.shape} />
+                <form className="Area-result-wrapper">
+                    <label>Výsledek:
+                        <input type="text" disabled={true} value="Result" />
+                    </label>
                     <button type="submit">Vypočítat</button>
-                </div>
+                </form>
             </div>
         </div>
     )

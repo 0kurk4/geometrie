@@ -1,7 +1,11 @@
-function AreaDescription() {
+function AreaDescription(props: any) {
+    const shape = props.shape;
+
+    const getShapeImg = (imgSrc: String) => '/data/' + imgSrc; 
+
     return(
         <div className="Area-description">
-            <img src='/data/trojuhelnik.png' alt="Shape name" />
+            {shape ? <img src={getShapeImg(shape.image)} alt={shape.name} /> : <div>Please select shape first</div>}
         </div>
     )
 }
