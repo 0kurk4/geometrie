@@ -1,9 +1,16 @@
-function ShapeSelectorInput() {
+function ShapeSelectorInput(props: any) {
+
+    console.log("again FUNCTION", props.data);
+
+
+
     return(
+        <label>Geometrický tvar:
         <select className="Shape-selector-input">
-            <option value="someOption">Some option</option>
-            <option value="otherOption">Other option</option>
+            <option value="-1">Vyberte tvar:</option>
+            {props.data.map((shape: any, key: number) => <option value={key}>{shape.name}, {key}</option>)}
         </select>
+        </label>
     )
 }
 

@@ -1,0 +1,17 @@
+.Area-calculator {
+    display: flex;
+    flex-direction: column;
+}
+
+.Area-params-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Area-params-form {
+    align-self: flex-start;
+}
+
+.Area-result-wrapper {
+    align-self: flex-end;
+}
