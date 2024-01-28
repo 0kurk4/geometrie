@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ShapeSelectorForm from './components/shape-selector/ShapeSelectorForm';
 
 function App() {
   return (
@@ -21,9 +20,6 @@ function App() {
         </a>
         <MyButton title="Moje button" disabled={true} />
       </header>
-      <div>
-        <ShapeSelectorForm />
-      </div>
     </div>
   );
 }

@@ -1,12 +1,23 @@
-function AreaParamsInput(props: any) {
+import { ChangeEvent } from 'react';
+import ShapeDimensionValues from '../../../types/ShapeDimensionValues';
 
-    const handleChange = (event: any) => {
-        console.log('AreaParamsInput', event.target.value);
+type AreaParamsInputProps = {
+    handler: (dimension: ShapeDimensionValues) => void;
+    name: string;
+}
+
+function AreaParamsInput({ name, handler }: AreaParamsInputProps) {
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        const value:number = Number(event.target.value);
+        const result:ShapeDimensionValues = {};
+        result[name] = value;
+        handler(result);
     }
 
-    return(
-        <label>{props.name}
-        <input type="number" min="0" step="any" placeholder="1.0" onChange={handleChange}></input>
+    return (
+        <label>{name}
+            <input type="number" min="0" step="any" placeholder="1.0" onChange={handleChange}></input>
         </label>
     )
 }

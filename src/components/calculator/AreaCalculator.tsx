@@ -2,14 +2,18 @@ import AreaDescription from "./AreaDescription";
 import AreaResult from "./AreaResult";
 import AreaParamsForm from "./params-selector/AreaParamsForm";
 import './AreaCalculator.css';
+import Shape from "../../types/Shape";
 
-function AreaCalculator(props: any) {
-    console.log(props.shape);
+type AreaCalculatorProps = {
+    shape: Shape | null;
+}
+
+function AreaCalculator({shape}: AreaCalculatorProps) {
     return (
         <div className="Area-calculator">
-            <AreaDescription shape={props.shape} />
+            <AreaDescription shape={shape} />
             <div className="Area-params-wrapper">
-                <AreaParamsForm shape={props.shape} />
+                <AreaParamsForm shape={shape} />
                 <form className="Area-result-wrapper">
                     <label>Výsledek:
                         <input type="text" disabled={true} value="Result" />

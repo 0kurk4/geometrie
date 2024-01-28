@@ -1,11 +1,16 @@
-function AreaDescription(props: any) {
-    const shape = props.shape;
+import Shape from "../../types/Shape";
 
-    const getShapeImg = (imgSrc: String) => '/data/' + imgSrc; 
+type AreaDescriptionProps = {
+    shape: Shape | null;
+}
+
+function AreaDescription({shape}: AreaDescriptionProps) {
+
+    const getShapeImg = (imgSrc: string) => '/data/' + imgSrc; 
 
     return(
         <div className="Area-description">
-            {shape ? <img src={getShapeImg(shape.image)} alt={shape.name} /> : <div>Please select shape first</div>}
+            {shape ? <img src={getShapeImg(shape.image)} alt={shape.name} /> : <div>Zvolte prosím geometrický tvar</div>}
         </div>
     )
 }
