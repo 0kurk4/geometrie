@@ -4,13 +4,15 @@ import AreaParamsInput from "./AreaParamsInput";
 
 type AreaDescriptionProps = {
     shape: Shape | null;
+    handler: (dimension: ShapeDimensionValues) => void;
 }
 
-function AreaParamsForm({shape}: AreaDescriptionProps) {
+function AreaParamsForm({shape, handler}: AreaDescriptionProps) {
     const dimensions:Array<string> = shape ? shape.dimensions : [];
 
     const onInputHandler = (dimension: ShapeDimensionValues) => {
-        console.log('dydydyd', dimension);
+        // console.log('dydydyd', dimension);
+        handler(dimension);
     }
 
     return(

@@ -30,13 +30,14 @@ function App() {
 
     // console.log(RectangleArea.getArea(rectangleDimensions));
 
+
     const onSelectorForm = (index: number):void => setSelectedShapeIndex(index);
 
     return (
         <div className="App">
             <h1 className="App-header">Výpočet obsahu</h1>
             <ShapeSelectorForm shapes={shapeSet} handler={onSelectorForm} />
-            <AreaCalculator shape={getShapeFromSet(selectedShapeIndex)}/>
+            <AreaCalculator shape={getShapeFromSet(selectedShapeIndex)} key={selectedShapeIndex} />
         </div>
     );
 }
