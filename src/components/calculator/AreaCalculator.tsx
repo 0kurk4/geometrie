@@ -1,32 +1,38 @@
 import AreaDescription from "./AreaDescription";
-import AreaResult from "./AreaResult";
+import AreaResultForm from "./AreaResultForm";
 import AreaParamsForm from "./params-selector/AreaParamsForm";
 import './AreaCalculator.css';
 import Shape from "../../types/Shape";
 import ShapeDimensionValues from "../../types/ShapeDimensionValues";
-import { FormEvent, MouseEvent, useState } from "react";
+import { useState } from "react";
 
 type AreaCalculatorProps = {
     shape: Shape | null;
 }
 
+const getDefaultShapeDimensions = (shape: Shape | null): ShapeDimensionValues => {
+    const dimensions: ShapeDimensionValues = {};
+    const values: Array<string> = shape ? shape.dimensions : [];
+    for (let i = 0; i < values.length; i++) {
+        dimensions[values[i]] = 1;
+    }
+    return dimensions;
+}
+
 function AreaCalculator({ shape }: AreaCalculatorProps) {
-    const [shapeDimensions, setShapeDimensions] = useState<ShapeDimensionValues>({});
+    const [shapeDimensions, setShapeDimensions] = useState<ShapeDimensionValues>(getDefaultShapeDimensions(shape));
+    const [shapeArea, setShapeArea] = useState<number>();
+
 
     const onParamsFormHandler = (dimension: ShapeDimensionValues) => {
         const dimensionsToUpdate: ShapeDimensionValues = shapeDimensions;
         Object.assign(dimensionsToUpdate, dimension);
         setShapeDimensions(dimensionsToUpdate);
-        console.log(shapeDimensions);
+        console.log('onParamsFormHandler', shapeDimensions);
     }
 
-    const handleSubmit = (event: FormEvent): void => {
-        event.preventDefault();
-        //handler(shapeId);
-    }
-
-    const handleClick = (event: MouseEvent): void => {
-        const result = console.log(event);
+    const onAreaResultFormHandler = (): void => {
+        setShapeArea(shape?.getArea(shapeDimensions));
     }
 
     return (
@@ -34,12 +40,7 @@ function AreaCalculator({ shape }: AreaCalculatorProps) {
             <AreaDescription shape={shape} />
             <div className="Area-params-wrapper">
                 <AreaParamsForm shape={shape} handler={onParamsFormHandler} />
-                <form className="Area-result-wrapper" onSubmit={handleSubmit}>
-                    <label>Výsledek:
-                        <input type="text" disabled={true} value="Result" />
-                    </label>
-                    <button type="submit" onClick={handleClick}>Vypočítat</button>
-                </form>
+                <AreaResultForm area={shapeArea} handler={onAreaResultFormHandler} />
             </div>
         </div>
     )

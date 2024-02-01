@@ -11,7 +11,6 @@ function AreaParamsForm({shape, handler}: AreaDescriptionProps) {
     const dimensions:Array<string> = shape ? shape.dimensions : [];
 
     const onInputHandler = (dimension: ShapeDimensionValues) => {
-        // console.log('dydydyd', dimension);
         handler(dimension);
     }
 

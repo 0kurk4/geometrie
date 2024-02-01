@@ -17,7 +17,7 @@ function AreaParamsInput({ name, handler }: AreaParamsInputProps) {
 
     return (
         <label>{name}
-            <input type="number" min="0" step="any" placeholder="1.0" onChange={handleChange}></input>
+            <input type="number" min="0" step="any" placeholder="0.0" defaultValue="1.0" onChange={handleChange}></input>
         </label>
     )
 }
