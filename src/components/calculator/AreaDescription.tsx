@@ -7,7 +7,7 @@ type AreaDescriptionProps = {
 
 function AreaDescription({shape}: AreaDescriptionProps) {
 
-    const getShapeImg = (imgSrc: string) => '/data/' + imgSrc; 
+    const getShapeImg = (imgSrc: string) => './data/' + imgSrc; 
 
     return(
         <div className="Area-description">
