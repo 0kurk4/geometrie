@@ -35,9 +35,12 @@ Nový geometrický tvar je definován typem `Shape`. Tento typ musí implementov
     - jméno geometrického tvaru.
 - `image: string`
     - název připojeného obrázku znázorňujícího výpočet obsahu
+    - obrázky se načítají ze složky `./public/data/`
 - `dimensions: Array<string>`
     - jména parametrů nutných k výpočtu obsahu
 - `getArea: (values: ShapeDimensionValues) => number`
-    - funkce která převezme objekt `ShapeDimensionValues` a vypočítá obsah
+    - funkce která převezme typ `ShapeDimensionValues` a vypočítá obsah
+    - pro kontrolu potřebných parametrů k výpočtu a platnosti hodnot je k dispozici funkce `validateDimensions()`
+    - pokud při kontrole dojde k chybě, funkce `getArea()` vrací hodnotu `NaN`.
 
 Každý nový tvar musí být přidán do modelu `ShapeSet`.
