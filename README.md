@@ -1,32 +1,43 @@
-# This project was created with Create React App
+# Geometrie
+Aplikace na výpočet obsahu geometrických tvarů.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplikace interaktivní formou provází uživatele procesem výpočtu obsahu základních geometrických tvarů.
 
-## Available Scripts
+Online verze aplikace [je dostupná zde](https://0kurk4.github.io/geometrie/).
 
-In the project directory, you can run:
+## Skripty pro build aplikace
+
+> Poznámka: pro build aplikace je potřeba mít nainstalované prostředí `Node` verze 20.11.0 a `npm` verze 10.2.4
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Spustí aplikaci ve vývojovém módu. V browseru otevřete url [http://localhost:3000](http://localhost:3000).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Aplikace podporuje hot-reloading. Stránka se automaticky obnovuje při změnách v kódu aplikace. Chybové hlášky, včetně lint error jsou vypsány do konzole prohlížeče.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Spustí interaktivní sérii testů, které monitorují zdraví kódu aplikace. Pro více informací navštivte [dokumentaci](https://facebook.github.io/create-react-app/docs/running-tests).
 
 ### `npm run build`
 
-NOTE: This script fails to produce local build. IT HAS TO BE SERVED VIA WEB!
+Vytvoří produkční build aplikace a umístí jej do složky `build`. Sloučí potřebné zdrojové soubory a knihovny do jediného souboru, který je optimalizován pro výkon aplikace.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Produkční build je následně minifikován a za jméno souboru je připojen hash pro lepší identifikaci zdrojů v produkčním prostředí.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Pro více informací navštivte [dokumentaci](https://facebook.github.io/create-react-app/docs/running-tests).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Implementace geometrických tvarů
+
+Nový geometrický tvar je definován typem `Shape`. Tento typ musí implementovat následující vlastnosti:
+
+- `name: string`
+    - jméno geometrického tvaru.
+- `image: string`
+    - název připojeného obrázku znázorňujícího výpočet obsahu
+- `dimensions: Array<string>`
+    - jména parametrů nutných k výpočtu obsahu
+- `getArea: (values: ShapeDimensionValues) => number`
+    - funkce která převezme objekt `ShapeDimensionValues` a vypočítá obsah
+
+Každý nový tvar musí být přidán do modelu `ShapeSet`.
