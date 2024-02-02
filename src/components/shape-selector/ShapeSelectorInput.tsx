@@ -1,10 +1,22 @@
-function ShapeSelectorInput(props: any) {
+import { ChangeEvent } from 'react';
+import Shape from '../../types/Shape';
+import './ShapeSelectorInput.css';
+
+type ShapeSelectorInputProps = {
+    shapeId: number,
+    handler: (event: ChangeEvent<HTMLSelectElement>) => void;
+    shapes: Array<Shape>;
+}
+
+function ShapeSelectorInput({shapes, shapeId, handler}: ShapeSelectorInputProps) {
     return (
-        <label>Geometrický tvar:
-            <select className="Shape-selector-input">
-                <option value="-1">Vyberte tvar:</option>
-                {props.data.map((shape: any, key: number) => <option value={key}>{shape.name}</option>)}
-            </select>
+        <label className="Shape-selector-input">Geometrický tvar:
+            <div>
+                <select value={shapeId} onChange={handler}>
+                    <option value={-1} key="-1">Vyberte tvar:</option>
+                    {shapes.map((shape: any, key: number) => <option value={key} key={key}>{shape.name}</option>)}
+                </select>
+            </div>
         </label>
     )
 }

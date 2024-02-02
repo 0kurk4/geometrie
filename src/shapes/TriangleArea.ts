@@ -1,5 +1,5 @@
 import Shape from "../types/Shape";
-import validateDimensions from "../utils/validateDimensionsUtil";
+import { validateDimensions } from "../utils/validateDimensionsUtil";
 
 const TriangleArea: Shape = {
 
@@ -9,7 +9,7 @@ const TriangleArea: Shape = {
 
     dimensions: ["a", "v"],
 
-    getArea: (values) => {
+    getArea: (values):number => {
         if (!validateDimensions(values, TriangleArea)) {
             return NaN;
         }

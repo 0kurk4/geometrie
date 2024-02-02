@@ -27,4 +27,4 @@ const validateDimensions = (values: ShapeDimensionValues, shape: Shape): boolean
 
 }
 
-export default validateDimensions;
+export { validateDimensions, validateForPositiveValues };

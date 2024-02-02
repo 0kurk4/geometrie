@@ -1,6 +1,7 @@
 import Shape from "../../../types/Shape";
 import ShapeDimensionValues from "../../../types/ShapeDimensionValues";
 import AreaParamsInput from "./AreaParamsInput";
+import './AreaParamsForm.css';
 
 type AreaDescriptionProps = {
     shape: Shape | null;

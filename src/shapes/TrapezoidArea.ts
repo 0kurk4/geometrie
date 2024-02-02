@@ -1,5 +1,5 @@
 import Shape from "../types/Shape";
-import validateDimensions from "../utils/validateDimensionsUtil";
+import { validateDimensions } from "../utils/validateDimensionsUtil";
 
 const TrapezoidArea: Shape = {
 
@@ -9,7 +9,7 @@ const TrapezoidArea: Shape = {
 
     dimensions: ["a", "c", "v"],
 
-    getArea: (values) => {
+    getArea: (values):number => {
         if (!validateDimensions(values, TrapezoidArea)) {
             return NaN;
         }

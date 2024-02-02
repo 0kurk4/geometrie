@@ -1,15 +1,15 @@
 import Shape from "../types/Shape";
-import validateDimensions from "../utils/validateDimensionsUtil";
+import { validateDimensions } from "../utils/validateDimensionsUtil";
 
 const SquareArea: Shape = {
-    
+
     name: "Čtverec",
 
     image: "ctverec.png",
 
     dimensions: ["a"],
 
-    getArea: (values) => {
+    getArea: (values):number => {
         if (!validateDimensions(values, SquareArea)) {
             return NaN;
         }

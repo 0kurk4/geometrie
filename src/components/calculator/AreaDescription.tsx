@@ -1,4 +1,5 @@
 import Shape from "../../types/Shape";
+import "./AreaDescription.css"
 
 type AreaDescriptionProps = {
     shape: Shape | null;

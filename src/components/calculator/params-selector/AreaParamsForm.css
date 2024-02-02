@@ -1,0 +1,11 @@
+.Area-params-form {
+    border: 1px dotted rgb(191, 199, 206);
+    align-self: flex-start;
+    padding: 12px;
+    width: 278px;
+}
+
+.Area-params-form h4 {
+    text-decoration-line: underline;
+    margin: 0;
+}

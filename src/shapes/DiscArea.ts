@@ -1,5 +1,5 @@
 import Shape from "../types/Shape";
-import validateDimensions from "../utils/validateDimensionsUtil";
+import { validateDimensions } from "../utils/validateDimensionsUtil";
 
 const DiscArea: Shape = {
 
@@ -9,7 +9,7 @@ const DiscArea: Shape = {
 
     dimensions: ["r"],
 
-    getArea: (values) => {
+    getArea: (values):number => {
         if (!validateDimensions(values, DiscArea)) {
             return NaN;
         }

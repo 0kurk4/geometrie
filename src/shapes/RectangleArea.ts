@@ -1,5 +1,5 @@
 import Shape from "../types/Shape";
-import validateDimensions from "../utils/validateDimensionsUtil";
+import { validateDimensions } from "../utils/validateDimensionsUtil";
 
 const RectangleArea: Shape = {
 
@@ -9,7 +9,7 @@ const RectangleArea: Shape = {
 
     dimensions: ["a", "b"],
 
-    getArea: (values) => {
+    getArea: (values):number => {
         if (!validateDimensions(values, RectangleArea)) {
             return NaN;
         }

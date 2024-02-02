@@ -1,15 +1,27 @@
-.Shape-selector {
+.Area-result-form {
     display: flex;
-    margin-top: 24px;
+    align-self: flex-end;
 }
 
-.Shape-selector .Button-wrapper {
+.Area-result-form label {
+    font-weight: bold;
+}
+
+.Area-result-form input {
+    font-size: 18px;
+    line-height: 32px;
+    padding: 0 12px;
+    margin-left: 12px;
+    background: palegoldenrod;
+}
+
+.Area-result-form .Button-wrapper {
     position: relative;
     width: 160px;
     margin-left: 24px;
 }
 
-.Shape-selector button {
+.Area-result-form button {
     position: relative;
     background: tomato;
     color: #222;
@@ -21,17 +33,17 @@
     width: 100%;
 }
 
-.Shape-selector button:hover {
+.Area-result-form button:hover {
     outline-offset: -2px;
     outline: solid 2px #222;
 }
 
-.Shape-selector button:focus {
+.Area-result-form button:focus {
     outline-offset: -2px;
     outline: solid 2px #222;
 }
 
-.Shape-selector .Button-icon {
+.Area-result-form .Button-icon {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -42,12 +54,12 @@
     pointer-events: none;
 }
 
-.Shape-selector button:active {
+.Area-result-form button:active {
     transform: scale(0.95, 0.95);
     box-shadow: none;
 }
 
-.Shape-selector button:active+.Button-icon {
+.Area-result-form button:active+.Button-icon {
     transform: scale(0.95, .095);
     right: 10px;
 }

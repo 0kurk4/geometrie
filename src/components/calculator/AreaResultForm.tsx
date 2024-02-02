@@ -1,4 +1,5 @@
 import { FormEvent } from "react";
+import './AreaResultForm.css';
 
 type AreaResultProps = {
     area: number | undefined;
@@ -15,11 +16,14 @@ function AreaResultForm({ area, handler}: AreaResultProps) {
 
 
     return (
-        <form className="Area-result-wrapper" onSubmit={handleSubmit}>
+        <form className="Area-result-form" onSubmit={handleSubmit}>
             <label>Výsledek:
                 <input type="text" disabled={true} value={resultValue} />
             </label>
-            <button type="submit">Vypočítat</button>
+            <div className="Button-wrapper">
+                <button type="submit">Vypočítat</button>
+                <div className="Button-icon"></div>
+            </div>
         </form>
     )
 }

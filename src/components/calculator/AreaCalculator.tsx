@@ -14,7 +14,7 @@ const getDefaultShapeDimensions = (shape: Shape | null): ShapeDimensionValues =>
     const dimensions: ShapeDimensionValues = {};
     const values: Array<string> = shape ? shape.dimensions : [];
     for (let i = 0; i < values.length; i++) {
-        dimensions[values[i]] = 1;
+        dimensions[values[i]] = 0;
     }
     return dimensions;
 }
@@ -24,11 +24,10 @@ function AreaCalculator({ shape }: AreaCalculatorProps) {
     const [shapeArea, setShapeArea] = useState<number>();
 
 
-    const onParamsFormHandler = (dimension: ShapeDimensionValues) => {
+    const onParamsFormHandler = (dimension: ShapeDimensionValues): void => {
         const dimensionsToUpdate: ShapeDimensionValues = shapeDimensions;
         Object.assign(dimensionsToUpdate, dimension);
         setShapeDimensions(dimensionsToUpdate);
-        console.log('onParamsFormHandler', shapeDimensions);
     }
 
     const onAreaResultFormHandler = (): void => {
