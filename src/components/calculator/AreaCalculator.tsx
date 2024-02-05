@@ -24,7 +24,7 @@ function AreaCalculator({ shape }: AreaCalculatorProps) {
     const [shapeArea, setShapeArea] = useState<number>();
 
 
-    const onParamsFormHandler = (dimension: ShapeDimensionValues): void => {
+    const onAreaParamsFormHandler = (dimension: ShapeDimensionValues): void => {
         const dimensionsToUpdate: ShapeDimensionValues = shapeDimensions;
         Object.assign(dimensionsToUpdate, dimension);
         setShapeDimensions(dimensionsToUpdate);
@@ -38,7 +38,7 @@ function AreaCalculator({ shape }: AreaCalculatorProps) {
         <div className="Area-calculator">
             <AreaDescription shape={shape} />
             <div className="Area-params-wrapper">
-                <AreaParamsForm shape={shape} handler={onParamsFormHandler} />
+                <AreaParamsForm shape={shape} handler={onAreaParamsFormHandler} />
                 <AreaResultForm area={shapeArea} handler={onAreaResultFormHandler} />
             </div>
         </div>

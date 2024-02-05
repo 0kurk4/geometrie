@@ -8,7 +8,7 @@ const validateForMissingKeys = (values: ShapeDimensionValues, shape: Shape): Arr
 
 const validateForPositiveValues = (values: ShapeDimensionValues): Array<Error> =>
     Object.entries(values).filter((key) => key[1] < 0)
-        .map(key => new Error(`Error validating values. ${key[0]}: ${key[1]} is invalid.`));
+        .map(key => new Error(`Error validating values. ${key[0]}: ${key[1]} is negative number.`));
 
 const validateDimensions = (values: ShapeDimensionValues, shape: Shape): boolean => {
     const missingKeysErrors = validateForMissingKeys(values, shape);
